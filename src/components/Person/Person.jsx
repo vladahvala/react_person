@@ -1,19 +1,21 @@
+/* eslint-disable prettier/prettier */
 export const Person = ({ person }) => {
+  const { name, age, sex, isMarried, partnerName } = person;
   let marriageStatus = 'I am not married';
 
-  if (person.isMarried) {
+  if (isMarried) {
     marriageStatus =
-      person.sex === 'm'
-        ? `${person.partnerName} is my wife`
-        : `${person.partnerName} is my husband`;
+      sex === 'm'
+        ? `${partnerName} is my wife`
+        : `${partnerName} is my husband`;
   }
 
   return (
     <section className="Person">
-      <h2 className="Person__name">My name is {person.name}</h2>
+      <h2 className="Person__name">My name is {name}</h2>
 
-      {person.age !== undefined && (
-        <p className="Person__age">I am {person.age}</p>
+      {age !== undefined && (
+        <p className="Person__age">I am {age}</p>
       )}
 
       <p className="Person__partner">{marriageStatus}</p>
